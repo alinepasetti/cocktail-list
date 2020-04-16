@@ -1,0 +1,104 @@
+.cocktail__detail {
+  border: 3px solid black;
+  width: 100%;
+  height: calc(100vh - 2em);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > div {
+    &:nth-of-type(1) {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      > div {
+        margin-right: 1em;
+      }
+      .cocktail__category {
+        padding: 0.5em 1em;
+        text-align: center;
+        font-weight: bold;
+        border: 3px solid black;
+        vertical-align: middle;
+        font-size: 17px;
+        text-transform: uppercase;
+        background-color: #ffffff;
+      }
+    }
+    &:nth-of-type(2) {
+      display: flex;
+      justify-content: space-between;
+      height: calc(50% + 3px);
+      > div {
+        padding: 0 1em;
+      }
+    }
+  }
+  img {
+    width: 50%;
+    box-sizing: border-box;
+    &.cocktail__img {
+      margin-right: 1.5em;
+      border-right: 3px solid black;
+      border-bottom: 3px solid black;
+    }
+  }
+  .slide-show {
+    width: 46%;
+    overflow: hidden;
+    position: relative;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    object-fit: contain;
+    > div {
+      background-image: url('/images/325702-PA5X5D-721.png');
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      &:nth-of-type(1) {
+        left: 0;
+        -webkit-animation: moveSlideshow 12s infinite normal linear;
+        animation: moveSlideshow 12s infinite normal linear;
+      }
+      &:nth-of-type(2) {
+        top: 0;
+        background-position: 0 0;
+        right: -317px;
+        -webkit-animation: moveSlideshow 12s infinite normal linear;
+        animation: moveSlideshow 12s infinite normal linear;
+      }
+    }
+  }
+  ul {
+    padding-left: 1em;
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+@-webkit-keyframes moveSlideshow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translateX(-66.6666%);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes moveSlideshow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translateX(-66.6666%);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
