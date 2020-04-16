@@ -14,8 +14,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cd client && npm install && npm run build && cd ..",
+    "postinstall": "npm run client:build && cd server && npm install && cd ..",
+    "start": "node ./server/server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
