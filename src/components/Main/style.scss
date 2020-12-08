@@ -1,5 +1,5 @@
 .main {
-  min-height: 100vh;
+  min-height: calc(100vh - (22px * 2));
   width: 63%;
   flex-shrink: 2;
   @media screen and (max-width: 777px) {
