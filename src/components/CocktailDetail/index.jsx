@@ -38,6 +38,8 @@ const CocktailDetail = (props) => {
                 </p>
               );
             }
+            // don't agree with this
+            return null;
           })}
         </div>
         <div className="slide-show">

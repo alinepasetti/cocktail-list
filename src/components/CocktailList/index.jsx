@@ -1,6 +1,6 @@
-import React from 'react';
-import CocktailItem from './../CocktailItem';
-import './style.scss';
+import React from "react";
+import CocktailItem from "./../CocktailItem";
+import "./style.scss";
 
 const CocktailList = (props) => {
   return (
@@ -17,6 +17,8 @@ const CocktailList = (props) => {
             />
           );
         }
+        // don't agree with this
+        return null;
       })}
     </div>
   );
