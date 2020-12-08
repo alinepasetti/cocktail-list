@@ -1,0 +1,10 @@
+.hamburguer-menu {
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 4%;
+  @media screen and (min-width: 777px) {
+    display: none;
+  }
+}

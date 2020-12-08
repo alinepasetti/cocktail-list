@@ -1,4 +1,8 @@
 .main {
+  min-height: 100vh;
   width: 63%;
   flex-shrink: 2;
+  @media screen and (max-width: 777px) {
+    width: 100%;
+  }
 }

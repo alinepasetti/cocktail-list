@@ -9,6 +9,7 @@ const CocktailList = (props) => {
         if (i > 0) {
           return (
             <CocktailItem
+              changeMenuVisibleAction={props.changeMenuVisibleAction}
               key={cocktail.strDrink}
               name={cocktail.strDrink}
               src={cocktail.strDrinkThumb}

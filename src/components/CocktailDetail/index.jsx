@@ -1,12 +1,21 @@
-import React from 'react';
-import './style.scss';
+import React from "react";
+import "./style.scss";
 
 const CocktailDetail = (props) => {
+  const changeMenuVisible = props.menuVisible;
   const cocktail = props.cocktail;
   return (
-    <section className="cocktail__detail">
+    <section
+      className={`cocktail__detail ${
+        changeMenuVisible ? "not-visible" : "visible"
+      }`}
+    >
       <div>
-        <img className="cocktail__img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+        <img
+          className="cocktail__img"
+          src={cocktail.strDrinkThumb}
+          alt={cocktail.strDrink}
+        />
         <div>
           <h1>{cocktail.strDrink}</h1>
           <p className="cocktail__category">{cocktail.strCategory}</p>
@@ -21,7 +30,7 @@ const CocktailDetail = (props) => {
       <div>
         <div>
           <h3>Steps</h3>
-          {cocktail.strInstructions.split('.').map((instruction, i) => {
+          {cocktail.strInstructions.split(".").map((instruction, i) => {
             if (instruction.length) {
               return (
                 <p key={instruction}>

@@ -26,8 +26,15 @@ const findOneCocktail = async (id) => {
 // Service to get a random ingredient
 const findRandomCocktail = async () => {
   const result = await instance.get('/random.php');
-  const cocktails = result.data.drinks[0];
-  return cocktails;
+  const cocktail = result.data.drinks[0];
+  const ingredients = [];
+  for (let i = 1; i <= 15; i++) {
+    const eachIngredient = cocktail['strIngredient' + i];
+    if (eachIngredient) {
+      ingredients.push(eachIngredient);
+    }
+  }
+  return { cocktail, ingredients };
 };
 
 export { findAllCocktails, findOneCocktail, findRandomCocktail };

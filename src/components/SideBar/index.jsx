@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import CocktailList from './../CocktailList';
 import SearchBar from './../SearchBar';
 import { findAllCocktails, findRandomCocktail } from './../../services/cocktails';
+import { withRouter } from 'react-router';
 import './style.scss';
 
-export default class SideBar extends Component {
-  constructor() {
-    super();
+class SideBar extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       inputValue: '',
       cocktails: [],
@@ -33,22 +33,28 @@ export default class SideBar extends Component {
   }
   async getRandomCocktail() {
     const result = await findRandomCocktail();
-    console.log(result.idDrink, this.props.history);
-    return `drink/${result.idDrink}`;
+    this.props.location.pathname.includes('/drink/')
+      ? this.props.history.push(`${result.cocktail.idDrink}`)
+      : this.props.history.push(`drink/${result.cocktail.idDrink}`);
   }
   render() {
+  const changeMenuVisible = this.props.menuVisible;
+
     return (
-      <aside className="aside">
+      <aside className={`aside ${changeMenuVisible ? 'visible' : 'not-visible'}`}>
         {this.state.cocktails && (
           <Fragment>
             <div className="main__nav">
-              <Link className="random__button" to={this.getRandomCocktail}>Get a Random Drink</Link>
+              <button className="random__button" onClick={() => this.getRandomCocktail()}>
+                Get a Random Drink
+              </button>
               <SearchBar getQuery={this.handleSearchFilter} inputValue={this.state.inputValue} />
             </div>
-            <CocktailList cocktails={this.filteredCocktails} />
+            <CocktailList changeMenuVisibleAction={this.props.changeMenuVisibleAction} cocktails={this.filteredCocktails} />
           </Fragment>
         )}
       </aside>
     );
   }
 }
+export default withRouter(SideBar);
